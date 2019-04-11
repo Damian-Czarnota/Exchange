@@ -11,6 +11,8 @@ import {Config, ExchangeInterface} from "../../interfaces/interfaces";
 })
 export class ExchangeRateComponent implements OnInit {
 
+
+
   constructor(private exchangeService: ExchangeService,
               private storageService: StorageService) {
   }
@@ -20,9 +22,17 @@ export class ExchangeRateComponent implements OnInit {
     {base:'USD', goal:'GBP'}];
   private _exchangeRatesData: Array<ExchangeInterface> = [];
   private _selectedIndex: number = 0;
+  private _interval: number = 0;
 
   ngOnInit() {
-    this.collectData()
+    this.collectData();
+    this.interval = setInterval(() =>{
+      this.changeContent(1)
+    },3000)
+  }
+
+  ngOnDestroy(){
+    clearInterval(this.interval);
   }
 
   collectData(): void {
@@ -72,4 +82,14 @@ export class ExchangeRateComponent implements OnInit {
   set selectedIndex(value: number) {
     this._selectedIndex = value;
   }
+
+  set interval(value: number) {
+    this._interval = value;
+  }
+
+  get interval(): number {
+    return this._interval;
+  }
+
+
 }
