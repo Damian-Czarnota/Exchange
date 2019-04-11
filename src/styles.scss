@@ -7,3 +7,17 @@ html, body {
 h1 {
   font-size: 40px;
 }
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%{
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+
+}
