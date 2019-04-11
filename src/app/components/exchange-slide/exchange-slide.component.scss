@@ -1,0 +1,93 @@
+@import "~src/app/variables";
+
+.carousel {
+  position: relative;
+  height: 100%;
+  padding: 50px 100px;
+  box-shadow: 10px 10px 75px 0 rgba(0,0,0,0.75);
+  background-size: cover;
+  background-image: url('~img/DEFAULT.jpg');
+  &--GBP {
+    background-image: url('~img/GBP.jpg');
+  }
+  &--CHF {
+    background-image: url('~img/CHF.jpg');
+  }
+  &--USD {
+    background-image: url('~img/USD.jpg');
+  }
+  &__wrapper {
+    position: relative;
+    padding: 20px 50px;
+    border: 2px solid #fff;
+    background-color: rgba(23,13,21,0.7);
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 30px;
+    background-color: rgba(23,13,21,0.7);
+
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(23,13,21,0.9);
+      transition: 0.5s;
+      filter: drop-shadow(0 0 10px gray);
+    }
+
+    &--left {
+      left: 0;
+    }
+
+    &--right {
+      right: 0;
+    }
+  }
+}
+
+.content {
+  text-align: center;
+  &__header {
+    color:$main-text;
+    margin-top: 0;
+  }
+  &__header:after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: $main-color;
+  }
+
+  &__number {
+    color: $main-text;
+    font-size: 20px;
+  }
+
+  &__decorator {
+    color: $main-color;
+    font-size: 20px;
+  }
+
+  &__footer {
+    color: $second-text;
+    padding: 10px;
+    text-align: right;
+  }
+
+}
+
+
+.animate {
+  margin-top: 25px;
+  font-size: 21px;
+  text-align: center;
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

@@ -1,0 +1,23 @@
+<ng-container *ngIf="context else notFound">
+  <section class="carousel {{class}}" ngClass="carousel--{{context.base}}">
+    <div class="carousel__arrow carousel__arrow--left" (click)="changeContent(-1)"></div>
+    <div class="carousel__wrapper">
+      <div class="content">
+          <h1 class="content__header">{{context.base}}</h1>
+        <div>
+          <span class="content__number">{{1 | currency:context.base}}</span>
+          &nbsp;<span class="content__decorator">=</span>&nbsp;
+          <span class="content__number">{{context.rates[config.goal] | currency:config.goal}}</span>
+        </div>
+        <div class="content__footer">
+          <p>Data aktualizacji: {{context.date | date:'dd-MM-yyyy'}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel__arrow carousel__arrow--right" (click)="changeContent(1)"></div>
+  </section>
+</ng-container>
+
+<ng-template #notFound>
+
+</ng-template>

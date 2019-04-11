@@ -1,0 +1,7 @@
+<section class="container">
+  <app-exchange-slide
+  [context]="exchangeRatesData[selectedIndex]"
+  [config]="config[selectedIndex]"
+  (event)="changeContent($event)"
+  ></app-exchange-slide>
+</section>
