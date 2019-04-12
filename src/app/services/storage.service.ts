@@ -7,6 +7,7 @@ import {BehaviorSubject, Observable, of} from "rxjs";
 })
 export class StorageService {
   private updateDate: Date;
+  private today: Date = new Date();
 
   constructor() {  }
 
@@ -39,6 +40,12 @@ export class StorageService {
 
   private clearStorage(): void {
     localStorage.clear();
+  }
+
+  public isUpToDate(): boolean {
+    return this.today.getDay() === this.updateDate.getDay()
+            && this.today.getMonth() === this.updateDate.getMonth()
+            && this.today.getFullYear() === this.updateDate.getFullYear()
   }
 
 }

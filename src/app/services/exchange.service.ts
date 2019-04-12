@@ -18,9 +18,12 @@ export class ExchangeService {
 
   get(base: string, goal: string) {
     let storageName: string = (base + goal).toUpperCase();
+    if(this.storageService.isUpToDate())
     return this.storageService.isInStorage(storageName)
       ? this.storageService.getExchangeFromStorage(storageName)
-      : this.getViaApi(base, goal)
+      : this.getViaApi(base, goal);
+    else
+      return this.getViaApi(base, goal);
   }
 
 
